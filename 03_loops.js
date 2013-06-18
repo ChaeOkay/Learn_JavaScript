@@ -22,17 +22,23 @@ function join(array_list, symbol){
 		};
 	};
 
-	return result
+	return result;
 };
 
 function sum(numbers){
-	var result = 0
+	var result = 0;
 	for (var i = 0; i < numbers.length; i++){
 		result += numbers[i];
 	};
-	return result
+	return result;
 };
 
-function paramify(){
+function paramify(hash){
+	/* sort method */
 
+	var result = "";
+	for (var i in hash){
+		result += (i + "=" + hash[i] + "&");
+	};
+	return result.slice(0,-1) ;
 };
