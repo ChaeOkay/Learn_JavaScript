@@ -13,7 +13,32 @@ function Calculator(){
 		total -= number;
 	};
 
-	this.push = function(){
-		
+
+	var rpn = [];
+
+	this.push = function(number){
+		rpn.push(number)
+	};
+
+	this.plus = function(){
+		if (rpn.length == 1){
+			total += rpn.pop();
+		} else {
+			total += rpn.pop();
+			total += rpn.pop();
+		};
+	};
+
+	this.minus = function(){
+		if (rpn.length == 1){
+			total -= rpn.pop();
+		} else {
+			var num2 = rpn.pop();
+			var num1 = rpn.pop();
+			total += (num1 - num2)
+		};
+	};
+
+	this.divide = function(){
 	};
 }
