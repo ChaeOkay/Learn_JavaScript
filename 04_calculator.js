@@ -14,6 +14,7 @@ function Calculator(){
 	};
 
 
+
 	var rpn = [];
 
 	this.push = function(number){
@@ -35,10 +36,18 @@ function Calculator(){
 		} else {
 			var num2 = rpn.pop();
 			var num1 = rpn.pop();
-			total += (num1 - num2)
+			total += (num1 - num2);
 		};
 	};
 
-	this.divide = function(){
+	this.divide = function(){ //divide function in progress
+		if (rpn.length == 1){
+			(total /=).toFixed(2);
+		} else {
+			var num2 = rpn.pop(); 
+			var num1 = rpn.pop();
+			total = (num1 / num2);
+		};
 	};
+
 }
