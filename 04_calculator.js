@@ -13,20 +13,21 @@ function Calculator(){
 		total -= number;
 	};
 
-
-
 	var rpn = [];
 
 	this.push = function(number){
-		rpn.push(number)
+		rpn.push(number);
 	};
 
 	this.plus = function(){
+
 		if (rpn.length == 1){
 			total += rpn.pop();
+		} else if (rpn.length > 1){
+			total += rpn.pop();
+			total += rpn.pop();
 		} else {
-			total += rpn.pop();
-			total += rpn.pop();
+			throw "calculator is empty"; //not being thrown
 		};
 	};
 
@@ -40,14 +41,22 @@ function Calculator(){
 		};
 	};
 
-	this.divide = function(){ //divide function in progress
+	this.divide = function(){ 
 		if (rpn.length == 1){
-			(total /=).toFixed(2);
+			total = (rpn.pop() / total)
 		} else {
-			var num2 = rpn.pop(); 
+			var num2 = rpn.pop();
 			var num1 = rpn.pop();
 			total = (num1 / num2);
 		};
 	};
+
+	this.times = function(){ 
+		if (rpn.length == 1){
+			total *= rpn.pop();
+		} else {
+			total = rpn.pop() * rpn.pop();
+		};
+	};	
 
 }
