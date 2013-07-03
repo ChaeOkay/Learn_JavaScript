@@ -39,19 +39,23 @@ function paramify(hash){
 	var sorted = [];
 
 	for (var key in hash){
-		sorted.push(key);
-	}
+		if (hash.hasOwnProperty(key)){
+			sorted.push(key);
+		};
+	};
 
 	sorted.sort();
 
 	for (var i = 0; i < sorted.length; i++){
 		result += sorted[i] + "=" + hash[sorted[i]] + "&"
-	}
+	};
 
 	return result.substr(0, result.length - 1);
 };
 
-
+/*
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FObject%2FhasOwnProperty
+*/
 
 
 
