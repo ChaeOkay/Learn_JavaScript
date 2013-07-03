@@ -34,20 +34,25 @@ function sum(numbers){
 };
 
 function paramify(hash){
-
 	var result = "";
-	var sorted = new Array();
-	var index = 0;
 
-	for (var i in hash){
-		sorted.push(i)
-	}; 
+	var sorted = [];
+
+	for (var key in hash){
+		sorted.push(key);
+	}
 
 	sorted.sort();
 
-	for (var h in hash){
-		result += sorted[index] + "=" + hash[sorted[index]] + "&"
-		index += 1;
-	};
-	return result.slice(0,-1);
+	for (var i = 0; i < sorted.length; i++){
+		result += sorted[i] + "=" + hash[sorted[i]] + "&"
+	}
+
+	return result.substr(0, result.length - 1);
 };
+
+
+
+
+
+
